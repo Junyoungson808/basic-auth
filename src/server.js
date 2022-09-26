@@ -35,7 +35,7 @@ app.use(express.json());
 // Process FORM input and add to request body
 app.use(express.urlencoded({ extended: true }));
 
-// Create a Sequelize Model
+// Create a Sequelize Model -- SCHEMA (USER)
 const UsersModel = sequelizeDatabase.define('Users', {
   username: {
     type: DataTypes.STRING,
@@ -95,7 +95,6 @@ async function basicAuth(req, res, next) {
         next('Not Authorized');
       }
     }
-
   }
 }
 
