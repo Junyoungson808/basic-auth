@@ -1,10 +1,12 @@
 'use strict';
 
 // 3rd party requirements
+require('dotenv').config();
 const express = require('express');
 const bcrypt = require('bcrypt');
 const base64 = require('base-64');
 const { Sequelize, DataTypes } = require('sequelize');
+const userRouter = require('./routes/signIn')
 
 const app = express();
 const PORT = process.env.PORT || 3002;
@@ -100,7 +102,7 @@ async function basicAuth(req, res, next) {
 
 // define a signup route to Create new user in database
 app.post('/signup', async (req, res, next) => {
-  console.log('I am here');
+  console.log('signup post here');
   try {
     let { username, password } = req.body;
     let encryptedPassword = await bcrypt.hash(password, 5);
@@ -116,13 +118,8 @@ app.post('/signup', async (req, res, next) => {
   }
 });
 
-//define a signin route to Returns user object to client (confirm user auth)
-app.post('/signin', basicAuth, (req, res, next) => {
-  res.status(200).send(req.user);
-});
-
 // define a hello route that uses basic auth to safeguard response content
-app.get('/hello', basicAuth, (req, res, next) => {
+app.get('/signup', basicAuth, (req, res, next) => {
   let { name } = req.query;
   res.status(200).send(`Greetings ${name}! this route is now secured by Basic AUth!!!`);
 });

@@ -2,7 +2,7 @@
   "development": {
     "username": "json",
     "password": null,
-    "database": "auth-labs",
+    "database": "basic-auth",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
