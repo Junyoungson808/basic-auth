@@ -2,11 +2,9 @@
 
 > This is the Lab06. Creating a basic auth project.
 
+## Author: Junyoung Son
+
 ### ![UML](/UML06.png)
-
-### [Heroku]()
-
-### Author: Junyoung Son
 
 ### Dependencies
 
