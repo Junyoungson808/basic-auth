@@ -1,4 +1,4 @@
-# Basic-Auth
+# Basic-Auth - Lab 6
 
 > This is the Lab06. Creating a basic auth project.
 
@@ -6,10 +6,20 @@
 
 ### [Heroku]()
 
-### Author
+### Author: Junyoung Son
 
-Junyoung Son
+### Dependencies
 
-### How to Use
+* node
+* dotenv
+* express
+* jest
+* supertest
+* sqlite3
+* sequelize-cli
+* sequelize
+* pg
+* Bcrypt
+* base64
 
 ### Note

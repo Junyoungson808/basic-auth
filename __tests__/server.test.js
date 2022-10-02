@@ -1,9 +1,8 @@
 'use strict';
 
 const supertest = require('supertest');
-// once refactored, your sequelizeDatabase should live somewhere else and need a different import.  maybe same places as shown below?
-const { app, sequelizeDatabase } = require('../src/server');
-// const { sequelizeDatabase } = require('../src/models');
+const { app } = require('../src/server');
+const { sequelizeDatabase } = require('../src/auth/models');
 const request = supertest(app); 
 
 
@@ -15,18 +14,17 @@ afterAll(async () => {
   await sequelizeDatabase.drop();
 });
 
-// TODO: replace or delete failing test to deploy successfully
-// to write basic non auth tests for server is best practice
-// your lab ONLY requires auth tests.  
-// you have been shown how to write other tests
-// RECOMMEND: practice here if time permits
-// STRONG RECOMMEND:  change string language! 
-describe('Passing and Failing Intentionally', () => {
+describe('API Server Test', () => {
+  test('allows a user to create new user', async () => {
+    let response = await request.post('/signup').send({
+      username: 'test',
+      password: 'test',
+    });
 
-  test('Test passes when true', async () => {
-    expect(true).toBeTruthy();
-  });
-  test('Test fails when false', async () => {
-    expect(false).toBeTruthy();
+    // console.log('Response Body', response.body);
+    // expect(response.status).toEqual(200);
+    expect(response.body.username).toEqual('test');
+    // expect(response.body.password).toBeTruthy();
+    // expect(response.body.password).not.toEqual('test');
   });
 });

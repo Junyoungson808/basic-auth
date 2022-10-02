@@ -52,9 +52,6 @@ UsersModel.beforeCreate((user) => {
   console.log('our user', user);
 });
 
-// Define basicAuth Middleware. 
-// Implement on basic-auth-secured routes only. ie.  the '/signin' or '/hello' route
-// TODO:
 
 async function basicAuth(req, res, next) {
   let { authorization } = req.headers;
